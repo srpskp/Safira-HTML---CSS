@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Noto+Nastaliq+Urdu&family=Nunito:wght@500&family=Oswald&family=Sevillana&family=Seymour+One&family=Work+Sans&display=swap"
+        rel="stylesheet">
+
+
+    <title>safira</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --oliv: #80B82D;
+            --fontcolor: #222222;
+            --white: #fff;
+        }
+
+        .headertop {
+            max-width: 100%;
+            padding: 0.7%;
+            /* background-color: black; */
+            display: flex;
+            align-items: center;
+
+        }
+
+        .language_currency {
+            width: 50%;
+
+
+        }
+
+        .language_currency ul {
+            margin-left: 20%;
+
+        }
+
+        .language_currency li {
+            float: left;
+            list-style-type: none;
+            margin-left: 5%;
+
+            font-family: 'Work Sans', sans-serif;
+
+            font-size: 0.9em;
+            letter-spacing: 0.03em;
+
+        }
+
+        .language_currency li a,
+        .text_right li a {
+            text-decoration: none;
+            color: var(--fontcolor);
+        }
+
+        .dropdown_language,
+        .dropdown_currency {
+
+            display: flex;
+            flex-direction: column;
+            display: none;
+            padding: 10px 20px;
+            transition: all .5s ease-out;
+
+
+        }
+
+        .language:hover .dropdown_language {
+            display: block;
+            z-index: 9999;
+            display: flex;
+        }
+
+        .currency:hover .dropdown_currency {
+            display: block;
+            z-index: 9999;
+            display: flex;
+        }
+
+        .social_icons {
+            width: 50%;
+
+        }
+
+        .text_right li {
+            list-style-type: none;
+            color: var(--fontcolor);
+            float: left;
+            margin-left: 10%;
+        }
+
+        .text_right ul li :hover {
+            color: var(--oliv);
+        }
+
+        .text_right ul {
+            width: 25%;
+            margin-left: 50%;
+
+            /* display: flex; */
+            /* background-color: rgb(228, 133, 9); */
+            /* justify-content: space-evenly; */
+
+        }
+
+        .text_right {
+            width: 100%;
+        }
+
+        .header_middle1 {
+            background-color: var(--oliv);
+            padding: 2.2%;
+            max-width: 100%;
+            /* display: flex; */
+            /* align-items: center; */
+        }
+
+        .header_middle2 {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            /* background-color: blue; */
+        }
+
+        .mid_col_1 {
+            width: 33.33%;
+            /* background-color: rgb(13, 126, 224); */
+        }
+
+        .search_here {
+            margin-left: 30%;
+        }
+
+        input {
+            /* border: none; */
+            outline: none;
+            background-color: none;
+            width: 60%;
+            padding: 1%;
+        }
+
+        .mid_col_2 {
+            width: 33.33%;
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            /* background-color: rgb(255, 30, 0); */
+        }
+
+        .mid_clo_3 {
+            width: 33.33%;
+            /* background-color: rgb(24, 26, 24); */
+        }
+
+        .fa-magnifying-glass {
+            margin-left: -6%;
+        }
+
+        .register {
+            width: 55%;
+            /* background-color: #696d64; */
+            color: var(--white);
+            display: flex;
+            margin-left: 13%;
+            font-family: "Work Sans", sans-serif;
+            /* font-size: 0.9em; */
+
+        }
+
+        .list li i:hover {
+            color: var(--fontcolor);
+        }
+
+        .list li a:hover {
+            color: var(--fontcolor);
+        }
+
+        .wish_list {
+            display: flex;
+            /* width: 17%; */
+            align-items: center;
+            justify-content: space-around;
+
+            /* background-color: aqua; */
+
+        }
+
+        .wish_list i,
+        .cart i {
+            font-size: 1.3em;
+        }
+
+
+
+        .list li {
+            float: left;
+            list-style-type: none;
+        }
+
+        .list li a {
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .register .list {
+            display: flex;
+            flex: 1;
+            font-size: 0.9em;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+
+        .nav_list {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav_list ul {
+            width: 80%;
+
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            line-height: 3rem;
+        }
+
+        .nav_list ul li :hover {
+            color: var(--oliv);
+        }
+
+        .nav_list ul li {
+            list-style-type: none;
+            margin-right: 37px;
+        }
+
+
+        .nav_list ul li a {
+            text-decoration: none;
+            font-family: "Work Sans", sans-serif;
+            font-size: 1em;
+            color: var(--fontcolor);
+        }
+
+        .header_bottom {
+            width: 100%;
+            /* background-color: aquamarine; */
+        }
+
+        .big_box,.big_box2 {
+            max-width: 100%;
+        }
+
+        .box {
+            max-width: 100%;
+            display: flex;
+        }
+
+        .col_totmato img, .col_garlic img {
+            width: 100%;
+            z-index: 0;
+        }
+
+        .row {
+            max-width: 100%;
+            /* background-color: tan; */
+        }
+
+        .tomato_content {
+            margin-top: -23%;
+            margin-left: 12%;
+
+            /* width: 30%; */
+            /* z-index: 2; */
+
+        }
+
+        .tomato_content h1 {
+            font-family: "Work Sans", sans-serif;
+            color: var(--fontcolor);
+            font-size: 3em;
+        }
+
+        .tomato_content p {
+            font-family: "Work Sans", sans-serif;
+            color: var(--fontcolor);
+            font-size: 1em;
+            width: 38%;
+            margin-top: 3%;
+            /* padding: 5%; */
+        }
+
+        .tomato_content h2 {
+            font-family: "Work Sans", sans-serif;
+            color: var(--fontcolor);
+            font-weight: 200;
+            font-size: 2.1em;
+        }
+
+        .tomato_content button {
+            padding: 1%;
+            text-decoration: none;
+            width: 10%;
+            border: none;
+            margin-top: 2%;
+            text-transform: uppercase;
+            border-radius: 10px;
+            background-color: var(--oliv);
+
+        }
+
+        .tomato_content button a {
+
+            text-decoration: none;
+            color: var(--white);
+            font-family: "Work Sans", sans-serif;
+            font-size: 15px;
+        }
+
+        .banner_gallery2 .row {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .banner_gallery2 {
+            margin-left: 11%;
+            margin-top: 12%;
+        }
+
+        .banner_gallery2 .row .col_1 {
+            margin-left: 1.7%;
+        }
+
+        .col_gride {
+            display: grid;
+            row-gap: 5%;
+        }
+
+        .banner_gallery3 {
+            margin-top: 5%;
+        }
+
+        .banner_gallery3 .row .col_1 {
+            width: 100%;
+        }
+
+        .section_title {
+            text-align: center;
+        }
+
+        .section_title p {
+            font-size: 15px;
+            line-height: 24px;
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            /* margin-bottom: 2px; */
+        }
+
+        .section_title h2 {
+            font-size: 32px;
+            line-height: 35px;
+            font-weight: 500;
+            display: inline-block;
+            text-transform: capitalize;
+            font-family: "Work Sans", sans-serif;
+        }
+
+        .product_tab_btn {
+            margin-top: 24px;
+        }
+
+        .product_tab_btn ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .product_tab_btn ul li {
+            margin-right: 8px;
+
+        }
+
+        .product_tab_btn ul li a.active {
+            color: var(--oliv);
+
+            border: 1px solid var(--oliv);
+
+
+        }
+
+        .product_tab_btn ul li a {
+            font-size: 1em;
+            padding: 5px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: var(--fontcolor);
+            font-family: "Work Sans", sans-serif;
+            /* font-weight: ; */
+        }
+        .product_gallery .row {
+           display: flex;
+           margin-left: 11%;
+           margin-top: 3%;
+        }
+        .product_gallery .row .col_1 {
+            margin-left: 1.2%;
+        }
+       
+        .product_content {
+            text-align: center;
+            margin-top: 5%;
+            font-family: "Work Sans", sans-serif;
+             /* color: #222222; */
+        }
+        .product_content > h4,p > a,a {
+            text-decoration: none;
+            color: var(--fontcolor);
+        }
+        .product_content h4 {
+            font-size: 17px;
+            line-height: 15px;
+            font-weight: 400;
+            text-transform: capitalize;
+            letter-spacing: 1%;
+    /* margin-bottom: 16px; */
+        }
+        .product_content h4 a:hover {
+            color: var(--oliv);
+        } 
+        .product_content p {
+            font-size: 14px;
+            margin-top: 7%;
+        }
+        .price_box {
+            margin-top: 7%;
+        }
+        .price_box span.current_price {
+             color: var(--oliv);
+             font-weight: 1000;
+        }
+        .price_box span.old_price {
+          text-decoration: line-through;
+          font-weight: 400;
+          font-size: 15px;
+          margin-left: 5px;
+        }
+        .product_gallery .col_1 .action_link ul li {
+            list-style-type: none;
+        }
+        .action_links ul {
+            display: flex;
+}
+       
+
+        /* #p_2 {
+            visibility: hidden;
+        }
+        #p_2:hover {
+            visibility: visible;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="headertop">
+            <div class="language_currency">
+                <!-- <div class="part1"> -->
+                <ul>
+                    <li class="language"><a href="#">Language <i class="fa fa-angle-down"></i> </a>
+                        <ul class="dropdown_language">
+                            <li><a href="#">French</a></li>
+                            <li><a href="#">Spanish</a></li>
+                            <li><a href="#">Russian</a></li>
+                        </ul>
+                    </li>
+
+                    <li><span>|</span></li>
+
+                    <li class="currency"><a href="#">Currency <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown_currency">
+                            <li><a href="#">€ Euro</a></li>
+                            <li><a href="#">£ Pound Sterling</a></li>
+                            <li><a href="#">$ US Dollar</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- </div>   -->
+            </div>
+            <div class="social_icons">
+                <div class="text_right">
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i> </a></li>
+                        <li><a href="#"><i class="fa-brands fa-google-plus-g"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-square-youtube"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="header_middle1">
+            <div class="header_middle2">
+
+                <div class="mid_col_1">
+                    <div class="search_here">
+                        <input type="text" placeholder="Search here..."><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+
+                <div class="mid_col_2 logo">
+                    <img src="./img/logo.webp" alt="">
+                </div>
+
+                <div class="mid_clo_3">
+                    <div class="register">
+                        <!-- <div class="list"> -->
+                        <ul class="list">
+                            <li><a href="#">REGISTER</a>
+                                <span>/</span>
+                                <a href="#">LOGIN</a>
+                            </li>
+                            <li> <i class="fa-solid fa-heart"><i class="fa-solid fa-circle-3"></i></i></li>
+                            <li> <i class="fa-solid fa-cart-shopping"><span><i
+                                            class="fa-solid fa-circle-2"></i></span></i></li>
+                        </ul>
+                        <!-- </div> -->
+
+                        <!-- <div class="wish_list">
+                         <i class="fa-solid fa-heart"><i class="fa-solid fa-circle-3"></i></i>
+                      </div>
+                      
+                      <div class="cart">
+                        <i class="fa-solid fa-cart-shopping"><span><i class="fa-solid fa-circle-2"></i></span></i>
+                     </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="header_bottom">
+            <div class="align_item_center">
+                <div class="nav_list">
+                    <ul>
+                        <li><a href="#">Home<i class="fa fa-angle-down"></i></a></li>
+                        <li><a href="#">Shop<i class="fa fa-angle-down"></i></a></li>
+                        <li><a href="#">Blog<i class="fa fa-angle-down"></i></a></li>
+                        <li><a href="#">Pages<i class="fa fa-angle-down"></i></a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Vagetables</a></li>
+                        <li><a href="#">Fruits</a></li>
+                        <li><a href="#">Salads</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="big_box">
+
+        <!-- <div class="box"> -->
+
+        <div class="col_totmato">
+
+            <img src="./img/slider4.jpg" alt="" width="20%">
+
+            <div class="row">
+
+                <div class="tomato_content">
+                    <h1>Fresh Organic Food</h1>
+                    <h2>Tomatoes, Onions &amp; Garlic</h2>
+                    <p>
+                        10% certifled-organic mix of fruit and veggies. Perfect for weekly cooking and snacking!
+                    </p>
+                    <button><a href="shop.html">Read more </a></button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+    <div class="banner_gallery2">
+        <div class="row">
+            <div class="col_1">
+                <a href="#">
+                    <img src="./img/banner5.jpg" alt="">
+                </a>
+            </div>
+            <div class="col_1">
+                <a href="#">
+                    <img src="./img/banner6.jpg" alt="">
+                </a>
+            </div>
+            <div class="col_1 col_gride">
+                <a href="#">
+                    <img src="./img/banner7.jpg" alt="">
+                </a>
+                <a href="#" class="col_3_2">
+                    <img src="./img/banner8.jpg" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner_gallery3">
+        <div class="row">
+            <div class="col_1">
+                <div class="product_header">
+                    <div class="section_title">
+                        <p>Recently added our store</p>
+                        <h2>Trending Products</h2>
+                    </div>
+                    <div class="product_tab_btn">
+                        <ul class="nav" role="tablist" id="nav-tab">
+                            <li>
+                                <a class="active" href="#"> Vegetables</a>
+                            </li>
+                            <li>
+                                <a href="#"> Fruits</a>
+                            </li>
+                            <li>
+                                <a href="#">Salads</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="product_gallery">
+        <div class="row">
+            <div class="col_1">
+                <div class="pic">
+                    <div class="two_pic">
+                  <a><img src="./img/product1.jpg" alt="" id="p_1"></a>
+                   <!-- <a><img src="./img/product2.jpg" alt="" id="p_2"></a> -->
+                   </div>
+
+                   <!-- <div class="action_links">
+                    <ul>
+                        <li class="add_to_cart"><a href="cart.html" data-tippy="Add to cart" data-tippy-placement="top" data-tippy-arrow="true" data-tippy-inertia="true"> <span class="lnr lnr-cart"></span></a></li>
+                       <li class="quick_button"><a href="#" data-tippy="quick view" data-tippy-placement="top" data-tippy-arrow="true" data-tippy-inertia="true" data-bs-toggle="modal" data-bs-target="#modal_box"> <span class="lnr lnr-magnifier"></span></a></li>
+                         <li class="wishlist"><a href="wishlist.html" data-tippy="Add to Wishlist" data-tippy-placement="top" data-tippy-arrow="true" data-tippy-inertia="true"><span class="lnr lnr-heart"></span></a></li> 
+                        <li class="compare"><a href="#" data-tippy="Add to Compare" data-tippy-placement="top" data-tippy-arrow="true" data-tippy-inertia="true"><span class="lnr lnr-sync"></span></a></li>
+                    </ul>
+                </div> -->
+                  <!-- <div class="tag">
+                    <span>SALE</span>
+                    <span>NEW</span>
+                  </div> -->
+                </div>
+                
+                <!-- <div class="contain">
+
+                </div> -->
+
+                <div class="product_content">
+                    <h4 class="product_name"><a href="#">Aliquam Consequat</a></h4>
+                    <p><a href="#">Fruits</a></p>
+                    <div class="price_box"> 
+                        <span class="current_price">$26.00</span>
+                        <span class="old_price">$362.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col_1">
+                <div class="pic">
+                    <div class="2_pic">
+                        <a> <img src="./img/product3.jpg" alt="" id="p_3"></a>
+                            <!-- <a> <img src="./img/product4.jpg" alt="" id="p_2"></a> -->
+                   </div>
+                </div>
+                <!-- <div class="contain">
+                      
+                </div> -->
+
+                <div class="product_content">
+                    <h4 class="product_name"><a href="#">Donec Non Est</a></h4>
+                    <p><a href="#">Fruits</a></p>
+                    <div class="price_box"> 
+                        <span class="current_price">$46.00</span>
+                        <span class="old_price">$382.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col_1">
+                <div class="pic">
+                   <img src="./img/product5.jpg" alt="" id="p_5">
+                   <!-- <img src="./img/product6.jpg" alt="" id="p_2"> -->
+                </div>
+                <!-- <div class="contain">
+
+                </div> -->
+
+                <div class="product_content">
+                    <h4 class="product_name"><a href="#">Etiam Gravida</a></h4>
+                    <p><a href="#">Fruits</a></p>
+                    <div class="price_box"> 
+                        <span class="current_price">$56.00</span>
+                        <span class="old_price">$322.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col_1">
+                <div class="pic">
+                   <img src="./img/product7.jpg" alt="" id="p_7">
+                   <!-- <img src="./img/product8.jpg" alt="" id="p_2"> -->
+                </div>
+                <!-- <div class="contain">
+
+                </div> -->
+
+                <div class="product_content">
+                    <h4 class="product_name"><a href="#">Fusce Aliquam</a></h4>
+                    <p><a href="#">Fruits</a></p>
+                    <div class="price_box"> 
+                        <span class="current_price">$66.00</span>
+                        <span class="old_price">$312.00</span>
+                    </div>
+                </div>
+
+                
+            </div>
+            <div class="col_1">
+                <div class="pic">
+                   <img src="./img/product9.jpg" alt="" id="p_9">
+                   <!-- <img src="./img/product10.jpg" alt="" id="p_2"> -->
+                </div>
+                <!-- <div class="contain">
+
+                </div> -->
+                <div class="product_content">
+                    <h4 class="product_name"><a href="#">Letraset Sheets</a></h4>
+                    <p><a href="#">Fruits</a></p>
+                    <div class="price_box"> 
+                        <span class="current_price">$38.00</span>
+                        <span class="old_price">$262.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="banner_gallery3">
+        <div class="row">
+            <div class="col_1">
+                <div class="product_header">
+                    <div class="section_title">
+                        <p>Recently added our store</p>
+                        <h2>Mostview Products</h2>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div> 
+       
+    <div class="product_gallery">
+        <div class="row">
+            <div class="col_1">
+                <div class="pic">
+                    <div class="two_pic">
+                  <a><img src="./img/product10.jpg" alt="" id="p_1"></a>
+                   <!-- <a><img src="./img/product2.jpg" alt="" id="p_2"></a> -->
+                   </div>
+
+                  
+                </div>
+                <div class="product_content">
+                    <h4 class="product_name"><a href="#">Aliquam Consequat</a></h4>
+                    <p><a href="#">Fruits</a></p>
+                    <div class="price_box"> 
+                        <span class="current_price">$26.00</span>
+                        <span class="old_price">$362.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col_1">
+                <div class="pic">
+                    <div class="two_pic">
+                  <a><img src="./img/product2.jpg" alt="" id="p_1"></a>
+                   <!-- <a><img src="./img/product2.jpg" alt="" id="p_2"></a> -->
+                   </div>
+
+                  
+                </div>
+                <div class="product_content">
+                    <h4 class="product_name"><a href="#">Aliquam Consequat</a></h4>
+                    <p><a href="#">Fruits</a></p>
+                    <div class="price_box"> 
+                        <span class="current_price">$26.00</span>
+                        <span class="old_price">$362.00</span>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col_1">
+                <div class="pic">
+                    <div class="two_pic">
+                  <a><img src="./img/product7.jpg" alt="" id="p_1"></a>
+                   <!-- <a><img src="./img/product2.jpg" alt="" id="p_2"></a> -->
+                   </div>
+
+                  
+                </div>
+                <div class="product_content">
+                    <h4 class="product_name"><a href="#">Aliquam Consequat</a></h4>
+                    <p><a href="#">Fruits</a></p>
+                    <div class="price_box"> 
+                        <span class="current_price">$26.00</span>
+                        <span class="old_price">$362.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col_1">
+                <div class="pic">
+                    <div class="two_pic">
+                  <a><img src="./img/product6.jpg" alt="" id="p_1"></a>
+                   <!-- <a><img src="./img/product2.jpg" alt="" id="p_2"></a> -->
+                   </div>
+
+                  
+                </div>
+                <div class="product_content">
+                    <h4 class="product_name"><a href="#">Aliquam Consequat</a></h4>
+                    <p><a href="#">Fruits</a></p>
+                    <div class="price_box"> 
+                        <span class="current_price">$26.00</span>
+                        <span class="old_price">$362.00</span>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col_1">
+                <div class="pic">
+                    <div class="two_pic">
+                  <a><img src="./img/product1.jpg" alt="" id="p_1"></a>
+                   <!-- <a><img src="./img/product2.jpg" alt="" id="p_2"></a> -->
+                   </div>
+
+                  
+                </div>
+                <div class="product_content">
+                    <h4 class="product_name"><a href="#">Aliquam Consequat</a></h4>
+                    <p><a href="#">Fruits</a></p>
+                    <div class="price_box"> 
+                        <span class="current_price">$26.00</span>
+                        <span class="old_price">$362.00</span>
+                    </div>
+                </div>
+            </div>
+        
+</div>
+            <div class="big_box2">
+
+                <!-- <div class="box"> -->
+        
+                <div class="col_garlic">
+        
+                    <img src="./img/banner3.jpg" alt="" width="20%">
+        
+                    <!-- <div class="row">
+        
+                        <div class="tomato_content">
+                            <h1>Fresh Organic Food</h1>
+                            <h2>Tomatoes, Onions &amp; Garlic</h2>
+                            <p>
+                                10% certifled-organic mix of fruit and veggies. Perfect for weekly cooking and snacking!
+                            </p>
+                            <button><a href="shop.html">Read more </a></button>
+                        </div>
+                    </div> -->
+        
+        
+        
+                </div>
+            </div>
+</body>
+
+</html>
